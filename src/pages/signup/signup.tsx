@@ -1,8 +1,10 @@
 import * as  React from 'react';
-// import { Link } from "react-router-dom";
+ import { Link } from "react-router-dom";
 import axios from "../../axios";
 import '../css/main.css';
 import Tick from '../images/tick.png';
+import Header from "../../components/header/header";
+// import Popup from "reactjs-popup";
 
 class Signup extends React.Component {
 
@@ -26,17 +28,17 @@ class Signup extends React.Component {
 
   public onChange=(e)=>{
     this.setState({ [e.target.name]: e.target.value });
-  }
+  } 
   
   public componentDidMount(){
-    axios.get(`api/country`)
+    axios.get(`https://us-central1-prooven-ceb0f.cloudfunctions.net/api/country`)
       .then(res => {
         const countryList = res.data;
         console.log(countryList.sort());
         this.setState({ countryType: res.data});  
       });
 
-      axios.get(`api/provider_type`)
+      axios.get(`https://us-central1-prooven-ceb0f.cloudfunctions.net/api/provider_type`)
       .then(res => {
         this.setState({ providerList: res.data}); 
       });
@@ -73,10 +75,27 @@ class Signup extends React.Component {
   public render() {
    const {providername,providertype,country,name,phone,email,password,confirmpassword,website,aboutbusiness,countryType} = this.state;
     return (
-      <div className="container login-cl">        
-        {this.state.signupSuccess?<p className="success-cl">Successfully Submitted !</p>:null}
+      <div><Header />
+      
+      {this.state.signupSuccess? <div className="col-lg-12 sucess_signup">
+       <div className="col-lg-4" />
+       <div className="col-lg-4 sucess_message_popup">
+         <h1>You have signed up sucessfully. Please login to your account<br /> 
+         <Link  to="/login">Click Here to Login</Link><br />
+      
+         </h1>
+        
+         </div>
+         <div className="col-lg-4" />
+         </div>:null} 
+         
+      <div className="container login-cl">    
+     
+        
         <div className="row">
           <div className="col-md-6 align-cl">
+
+
             <div id="myCarousel" className="carousel slide" data-ride="carousel">
               <ol className="carousel-indicators" id="grid">
                 <li data-target="#myCarousel" data-slide-to="0" className="active" />
@@ -150,7 +169,7 @@ class Signup extends React.Component {
                 value={name}
                 onChange={this.onChange}
                 required
-                pattern="[A-Za-z]{3}" 
+                // pattern="[A-Za-z]{20}" 
                 />
               </div>
               <div className="form-group">
@@ -215,7 +234,7 @@ class Signup extends React.Component {
                 value={website}
                 onChange={this.onChange}
                 required
-                pattern="https?://.+"
+                // pattern="https?://.+"
                 />
               </div>
               <div className="form-group">
@@ -235,11 +254,11 @@ class Signup extends React.Component {
                 value="Sign Up" 
                 />
             </form>
-            <h3 className="free-cl">Sign Up, It's Free!</h3>
+            <h3 className="free-cl"><Link  to="/login">Sign In, It's Free!</Link></h3>
           </div>
           <div className="col-md-1" />
         </div>
-      </div>
+      </div></div>
     );
   }
 }

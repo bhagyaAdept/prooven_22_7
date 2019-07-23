@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Route} from 'react-router-dom';
-import Header from "./components/header/header";
+// import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Dashboard from "./pages/dashboard/dashBoard";
 import MyTranscript from "./pages/myTranscript/myTranscript";
@@ -11,14 +11,15 @@ import Feedback from "./pages/feedback/feedback";
 import Profile from "./pages/profile/profile";
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
-import Contact from "./pages/contact/contact";
+import Logout from "./pages/logout/logout";
 import Inbox from "./pages/inbox/inbox";
 
 class App extends React.Component {
   public render() {
     return (
     <div className="App">
-    <Header/> 
+     
+    <Route path='/' exact component={Login}/>
     <Route path='/login' exact component={Login}/>
     <Route path='/dashboard' exact component={Dashboard}/>
     <Route path='/myTranscript' exact component={MyTranscript}/>
@@ -28,7 +29,7 @@ class App extends React.Component {
     <Route path='/feedback' exact component={Feedback}/>
     <Route path='/profile' exact component={Profile}/>
     <Route path='/signup' exact component={Signup}/>
-    <Route path='/contact' exact component={Contact}/>
+    <Route path='/logout' exact component={Logout}/>
     <Route path='/inbox' exact component={Inbox}/>
     <Footer/> 
     </div>

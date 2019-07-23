@@ -891,3 +891,33 @@ font-size: 16px;
     }
     
 }
+
+.sucess_signup {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+  
+    height: 100%;
+   
+    background: #000000c7;
+    color: #fff;
+    z-index: 211;
+}
+.sucess_signup h1{
+    color: green;
+    font-size: 20px;line-height: 35px;
+    text-align: center;
+}
+.sucess_message_popup{
+    background: #fff;
+    top:30%;
+    padding: 50px;
+
+}

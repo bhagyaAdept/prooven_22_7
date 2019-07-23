@@ -1,11 +1,15 @@
 import * as React from 'react';
 import '../css/main.css';
 import { Link } from 'react-router-dom';
+import Navbar from "../../components/header/navbar";
 
 class Feedback extends React.Component {
 
     public render() {
         return (
+            <div>
+                <Navbar />
+           
             <div className="body_offwhite">
                 <div className="container my_container">
                     <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
@@ -75,7 +79,7 @@ class Feedback extends React.Component {
                         </div>
                     </div> {/* end of col-12 */}
                 </div> {/* end of container */}
-            </div>
+            </div> </div>
         );
     }
 }

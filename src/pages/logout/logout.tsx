@@ -10,7 +10,7 @@ interface IProps {
   loginInfo: any;
 }
 
-class Login extends React.Component<IProps> {  
+class Logout extends React.Component<IProps> {  
 
   public state={
    email:"",
@@ -180,4 +180,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Logout);
