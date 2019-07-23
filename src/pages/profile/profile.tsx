@@ -1,17 +1,12 @@
 import * as  React from 'react';
-import axios from "../../axios";
+// import axios from "../../axios";
 import { Link } from 'react-router-dom';
 import QR from '../images/QR.png';
 import '../css/main.css';
 
 class Profile extends React.Component {
 
-    public componentDidMount() {
-        axios.post(`https://us-central1-prooven1-3a324.cloudfunctions.net/createScream`)
-            .then(res => {
-                console.log(res);
-            });
-    }
+   
 
     public render() {
 

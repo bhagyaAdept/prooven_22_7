@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import axios from "../../axios";
 import '../css/main.css';
 import Tick from '../images/tick.png';
@@ -11,44 +11,49 @@ class Login extends React.Component {
   public state={
    email:"",
    password:"",
+   message: "",
+   email_id:"",
+   errorMessage:false,
+   successMessage:false,
   }
-
-  // public componentDidMount(){
-  //   axios.post(`api/signup`,{
-  //     provider_name: "Dinesh",
-  //     provider_type: "college",
-  //     country: "india",
-  //     name: "hamsa",
-  //     phone: "123456",
-  //     email: "hamsa.bv@anekam.com",
-  //     website: "anekam.com",
-  //     about_business: "description goes here"
-  //   })
-  //   .then(res => {
-  //     console.log(res);
-  //   });   
-  // }
-   
+ 
+  
+  public onChange=(e)=>{
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  
   public submitValidation=(e)=>{
     e.preventDefault();
     console.log(e);
-    axios.post(`api/signup`,{
+    axios.post(`api/signin`,{
       email: this.state.email,
       password: this.state.password,
     })
     .then(res => {
-      console.log(res);
-    });   
+      console.log(res);      
+      this.setState({ successMessage : true });
+      this.setState({ message : "auth/wrong-password" }); 
+      this.setState({ email_id : this.state.email }); 
+     
+      this.setState({ errorMessage: false});     
+    })
+    .catch(error => {
+      console.log(error); 
+      this.setState({ errorMessage: true});
+      this.setState({ successMessage : false }); 
+    });  
+   
   }
   
-  
-
   public render() {
+      const{email,  password} = this.state;
+      
    return (
     <div className="container login-cl">
       <div className="row">
           <div className="col-md-6 align-cl">
                 <div id="myCarousel" className="carousel slide" data-ride="carousel">
+
                 <ol className="carousel-indicators"> 
                 <li data-target="#myCarousel" id="hexagon2" data-slide-to="0" className="active"/>
                 <li data-target="#myCarousel" data-slide-to="1"/>
@@ -85,11 +90,27 @@ class Login extends React.Component {
                 <form method="POST" name ="myForm" onSubmit={this.submitValidation}>
                 <div className="form-group">
                 <label>Email address<span className="star">*</span></label>
-                <input type="email" className="form-control" id="email" placeholder="Enter email" name='email' required />
+                <input
+                type="email"
+                 className="form-control"
+                  id="email"
+                   placeholder="Enter email"
+                    name='email'
+                    value={email}
+                    onChange={this.onChange}
+                     required />
                 </div>
                 <div className="form-group">
                 <label>Password<span className="star">*</span></label>
-                <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="password" />
+                <input
+                 type="password"
+                  className="form-control"
+                   id="pwd" 
+                   placeholder="Enter password"
+                    name="password"
+                    value={password}
+                    onChange={this.onChange}
+                     />
                 </div>
                 <div className="checkbox">
                 <label><input type="checkbox" name="remember"/> Remember me</label>
@@ -97,6 +118,13 @@ class Login extends React.Component {
                 </div>
                 <input type="submit" className="btn custom-btn"  value="Sign In"/>
                 </form>
+                {this.state.message === "auth/wrong-password" ? 
+                <Redirect to="/login/"  /> : null
+                }
+                 {this.state.email_id !== "" && this.state.message !== "auth/wrong-password"? 
+               console.log(this.state.email_id) : null
+                }
+                 
                 <h3 className="free-cl"><Link to="/signup">Sign Up, It's Free!</Link></h3>
           </div>
           <div className="col-md-1"/>
