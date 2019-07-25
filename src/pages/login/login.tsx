@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import axios from "../../axios";
 import '../css/main.css';
-import Tick from '../images/tick.png';
+import Tick from '../images/slider_check.png';
 import Header from "../../components/header/header";
 interface IProps {
   loginInfo: any;
@@ -77,35 +77,68 @@ class Login extends React.Component<IProps> {
                 <li data-target="#myCarousel" id="hexagon2" data-slide-to="0" className="active"/>
                 <li data-target="#myCarousel" data-slide-to="1"/>
                 <li data-target="#myCarousel" data-slide-to="2"/>
+                <li data-target="#myCarousel" data-slide-to="3"/>
                 </ol>
 
                 <div className="carousel-inner">
                 <div className="item active">
-                <div className="text-cap-cl">                  
-                <h3>Welcome to Prooven!</h3>
+                <div className="text-cap-cl">
+                <div className="col-lg-2" />
+                <div className="col-lg-8">
+                <h2>Welcome To Prooven !</h2>
                 <h4>Your World. Verified.</h4>
                 <img src={Tick} alt="Tick Image" className="img-cl"/>
                 <p>Integrity. Trust. Accountability.</p>
                 <p>Prooven takes a next-gen approach to verifying information that you come across daily.</p>
                 <p>We identify items that are true, false, or somewhere in the middle, then show you how those claims stack up to others.</p>
-                </div>
+                </div> <div className="col-lg-2" />
+                </div> 
                 </div>
 
                 <div className="item">
                 <div className="text-cap-cl">
-                <h3>Thank you</h3>
+                <div className="col-lg-2" />
+                <div className="col-lg-8">
+                <h2>Welcome To Prooven !</h2>
                 <h4>Your World. Verified.</h4>
                 <img src={Tick} alt="Tick Image" className="img-cl"/>
                 <p>Integrity. Trust. Accountability.</p>
                 <p>Prooven takes a next-gen approach to verifying information that you come across daily.</p>
                 <p>We identify items that are true, false, or somewhere in the middle, then show you how those claims stack up to others.</p>
+                </div> <div className="col-lg-2" />
+                </div> 
                 </div>
+                <div className="item">
+                <div className="text-cap-cl">
+                <div className="col-lg-2" />
+                <div className="col-lg-8">
+                <h2>Welcome To Prooven !</h2>
+                <h4>Your World. Verified.</h4>
+                <img src={Tick} alt="Tick Image" className="img-cl"/>
+                <p>Integrity. Trust. Accountability.</p>
+                <p>Prooven takes a next-gen approach to verifying information that you come across daily.</p>
+                <p>We identify items that are true, false, or somewhere in the middle, then show you how those claims stack up to others.</p>
+                </div> <div className="col-lg-2" />
+                </div> 
+                </div>
+                <div className="item">
+                <div className="text-cap-cl">
+                <div className="col-lg-2" />
+                <div className="col-lg-8">
+                <h2>Welcome To Prooven !</h2>
+                <h4>Your World. Verified.</h4>
+                <img src={Tick} alt="Tick Image" className="img-cl"/>
+                <p>Integrity. Trust. Accountability.</p>
+                <p>Prooven takes a next-gen approach to verifying information that you come across daily.</p>
+                <p>We identify items that are true, false, or somewhere in the middle, then show you how those claims stack up to others.</p>
+                </div> <div className="col-lg-2" />
+                </div> 
                 </div>
                 </div>
                 </div>        
           </div>
           <div className="col-md-5 form-left">
-              <h3 className="center">Login to your account</h3>
+              <h3 className="center">Sign into to your account</h3>
                 <form method="POST" name ="myForm" onSubmit={this.submitValidation}>
                 <div className="form-group">
                 <label>Email address<span className="star">*</span></label>
@@ -147,7 +180,7 @@ class Login extends React.Component<IProps> {
                   { this.state.successMessage ? <Redirect to="/profile" />:null }
                   { this.state.errorMessage ? <p className="errorMessage-cl">User Not Found</p>:null }
 
-                <h3 className="free-cl"><Link to="/signup">Sign Up, It's Free!</Link></h3>
+                <h2 className="free-cl"><Link to="/signup">Sign Up, It's Free!</Link></h2>
           </div>
           <div className="col-md-1"/>
       </div>

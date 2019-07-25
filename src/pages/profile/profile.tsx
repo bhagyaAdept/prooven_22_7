@@ -94,11 +94,11 @@ public toggle = () =>{
                <div className="qr-img">                    
                <img src={ QR } alt="QR" className="" />
               
-                         
+                         <br /><br />
                <p><b>Private key :</b><span className="click-cl" onClick = {this.toggle} >  {this.state.phrase &&  this.state.on?
                
-               <span>hide</span>
-              : <span>show</span> }
+               <span className="show_hide">hide</span>
+              : <span className="show_hide">show</span> }
              </span></p>               
                {this.state.phrase &&  this.state.on?
                
@@ -177,24 +177,24 @@ public toggle = () =>{
                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 pdg_25 bkg_white address">
                
                <h3> Phone <span className="flt_rgt"><i className="fa fa-plus" /></span></h3>
-               <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+               <div className="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                    <div className="row">
                 <h4>{this.props.phone}</h4>
                 <h4>Mobile, Primary</h4>
                </div>{/* end of row */}
                </div>{/* end of col-md-8*/}
-               <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                <h4><Link to="#">Update | Remove</Link></h4>
                </div>{/* end of col-md-4 */}
               
                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12"> <hr /></div>
-               <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+               <div className="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                    <div className="row">
                 <h4>{this.props.phone}</h4>
                 <h4>Mobile, Primary</h4>
                </div>{/* end of row */}
                </div>{/* end of col-md-8*/}
-               <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                <h4><Link to="#">Update | Remove</Link></h4>
                </div>{/* end of col-md-4 */}
 
